@@ -1,6 +1,22 @@
+import { useEffect, useState } from "react";
 import ViewComponent from "../../components/ViewComponent/ViewComponent";
+import axios from "axios";
 
 function Orders() {
+
+
+  useEffect(()=>{
+    fetchorders()
+},[])
+
+const [orders,setOrders] = useState([])
+
+const fetchorders = async ()=>{
+   const response = await axios.get('http://localhost:3000/api/orders')
+
+   setOrders(response.data.products)
+}
+
   const headings = {
     headingOne: "Profile",
     headingTwo: "Name",
@@ -58,10 +74,37 @@ function Orders() {
     },
   ];
 
+
+ 
+
+  
   return (
     <div>
       <h1 className="text-white">Orders</h1>
-      <ViewComponent headings={headings} datas={obj} />
+      <div className='flex gap-3 '>
+
+        {
+            orders.map((item)=>{
+                return (
+                    <div className="">
+                        <p className="text-white" >{item.fname}</p>
+                        <p className="text-white">{item.lname}</p>
+                        <p className="text-white">{item.products.map((item)=>{
+                            return(
+                                <>
+                                <p>{item.name}</p>
+                                
+                                </>
+                            )
+                        })}</p>
+                        {/* {JSON.stringify(item)} */}
+                    </div>
+                )
+            })
+        }
+      
+    </div>
+      {/* <ViewComponent headings={headings} datas={obj} /> */}
     </div>
   );
 }

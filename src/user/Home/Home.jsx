@@ -47,17 +47,20 @@ export default function Home() {
           {products.map((item) => {
             return (
               <>
-                <Link to={`/details/${item._id}`}  state={{products:item}}>
                   <div className="bg-slate-500 w-[300px] p-7 rounded hover:bg-slate-950">
-                    <img style={{width:"80px",height:"80px",borderRadius:"50%"}} src={`http://localhost:3000/${item.profile}`}/>
-                    <h1 className="text-white ">{item.name}</h1>
-                    <p className="text-white ">{item.price}</p>
-                    <p className="text-white ">{item.details}</p>
-                    <div className="text-white text-end">
-                      <i class="fa-solid fa-cart-shopping"></i>
-                    </div>
+                    <Link to={`/details/${item._id}`}  state={{products:item}}>
+                      <img style={{width:"80px",height:"80px",borderRadius:"50%"}} src={`http://localhost:3000/${item.profile}`}/>
+                      <h1 className="text-white ">{item.name}</h1>
+                      <p className="text-white ">{item.price}</p>
+                      <p className="text-white ">{item.details}</p> 
+                    </Link>
+                    <button>
+                      <div className="text-white">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                      </div>
+                    </button>
                   </div>
-                </Link>
+               
               </>
             );
           })}

@@ -24,7 +24,14 @@ export default function Orders() {
                     <div className="">
                         <p>{item.fname}</p>
                         <p>{item.lname}</p>
-                        <p>{item.productId}</p>
+                        <p>{item.products.map((item)=>{
+                            return(
+                                <>
+                                <p>{item.name}</p>
+                                
+                                </>
+                            )
+                        })}</p>
                         {/* {JSON.stringify(item)} */}
                     </div>
                 )
