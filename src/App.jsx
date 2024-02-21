@@ -14,26 +14,53 @@ import Register from "./user/Register/Register";
 import Details from "./user/Product_details/Details";
 import PlaceOrder from "./user/PlaceOrder/PlaceOrder";
 import Order from "./user/Orders/Orders";
+import Profile from "./user/Profile/Profile";
+import Layout from "./user/Layout/Layout";
+import Transactions from "./user/transactions/transactions";
+import UserCart from "./user/Cart/UserCart";
+
 
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home/>,
+      element: <Layout/>,
+      children:[
+        {
+          path:"home",
+          element:<Home/>
+        },
+        {
+          path: "details/:id",
+          element: <Details/>,
+        },
+        {
+          path: "orders",
+          element: <Order/>,
+        },
+        {
+          path: "place-order",
+          element: <PlaceOrder/>,
+        },
+        {
+          path:"profile",
+          element:<Profile/>
+        },
+        {
+          path:'/transaction',
+          element:<Transactions/>
+        },
+        {
+          path:'/cart',
+          element:<UserCart/>
+        }
+      ]
     },
-    {
-      path: "/details/:id",
-      element: <Details/>,
-    },
-    {
-      path: "/orders",
-      element: <Order/>,
-    },
-    {
-      path: "/place-order",
-      element: <PlaceOrder/>,
-    },
+    
+
+
+
     {
       path: "/admin",
       element: <Protected/>,
@@ -83,6 +110,24 @@ function App() {
       path: "user-login",
       element: <Login/>,
     },
+
+
+
+
+    // {
+    //   path:'/user',
+    //   element:<>user</>,
+    //   children:[
+    //     {
+    //       path:"about",
+    //       element:<>about</>
+    //     },
+    //     {
+    //       path:"/"
+    //     }
+    //   ]
+      
+    // }
   ]);
 
   return <RouterProvider router={router} />;

@@ -97,14 +97,12 @@ const fetchorders = async ()=>{
                                 </>
                             )
                         })}</p>
-                        {/* {JSON.stringify(item)} */}
                     </div>
                 )
             })
         }
       
     </div>
-      {/* <ViewComponent headings={headings} datas={obj} /> */}
     </div>
   );
 }

@@ -160,6 +160,23 @@ function Product() {
     setIsEditFormData({[e.target.name]:e.target.value})
   }
 
+
+
+  // const handleEditChange = (e) => {
+  //   if (e.target.type === "file") {
+  //     // Handle file input separately
+  //     setImage(e.target.files[0]);
+  //     setImagePreview(URL.createObjectURL(e.target.files[0]));
+  //   } else {
+  //     // Handle text inputs
+  //     setIsEditFormData({ ...isEditFormData, [e.target.name]: e.target.value });
+  //   }
+  // };
+
+
+
+
+
     const  handleChangeImage = (e)=>{
         console.log(e.target.files[0],'ee');
         setImage(e.target.files[0])
@@ -182,8 +199,6 @@ return (
           <th className="text-white">NAME</th>
           <th className="text-white">DETAILS</th>
           <th className="text-white">PRICE</th>
-          <th className="text-white"></th>
-          <th className="text-white"></th>
         </tr>
         
         {products.map(
@@ -240,7 +255,7 @@ return (
             <div className=" text-xl">
             <h1>Edit Product</h1>
             
-              {/* <input type="file" placeholder="img" name="profile" onChange={handleEditChange}  value={isEditFormData?.profile}/> */}
+              {/* <input type="file" placeholder="img" name="profile" onChange={handleEditChange}/> */}
               <input type="text" placeholder="name" name="name" onChange={handleEditChange}  value={isEditFormData?.name}/>
               <input type="text" placeholder="price" name="price" onChange={handleEditChange}  value={isEditFormData?.price} />
               <input type="text" placeholder="details" name="details" onChange={handleEditChange} value={isEditFormData?.details} />

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { errorToast, successToast } from "../../components/Toast";
+import { Card } from "@mui/material";
 
 function PlaceOrder() {
   const value = useLocation();
@@ -37,16 +38,18 @@ function PlaceOrder() {
 
   return (
     <div>
-      <p>{value.state.product.name}</p>
-      <p>{value.state.product.price}</p>
-      <p>{value.state.product.details}</p>
-      <p>
-        <img
-          src={`http://localhost:3000/${value.state.product.profile}`}
-          alt="loading"
-          className="w-7 h-7 object-contain"
-        />
-      </p>
+      <Card className="m-10 p-10" style={{width:"400px"}}>
+        <p>
+          <img
+            src={`http://localhost:3000/${value.state.product.profile}`}
+            alt="loading"
+            style={{width:"200px" ,height:"200px" , borderRadius:"50%"}}
+          />
+        </p>
+        <p>{value.state.product.name}</p>
+        <p>{value.state.product.price}</p>
+        <p>{value.state.product.details}</p>
+      </Card>
 
       <div className="">
         <div class="block max-w-md rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
@@ -93,7 +96,7 @@ function PlaceOrder() {
 
             <button
               type="submit"
-              class="inline-block w-full rounded bg-primary px-6 pb-2 pt-2.5 text-xs text-black font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
+              class="inline-block w-full rounded bg-black px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
               data-te-ripple-init
               data-te-ripple-color="light"
             >
