@@ -221,7 +221,7 @@ return (
                 {/* <td className="text-white">{_id}</td> */}
                 <td className="text-white">{details}</td>
                 <td className="text-white">{price}</td>
-                <td className="text-green-600" onClick={() => {
+                <td className="text-green-600 " onClick={() => {
                   onclickEdit(_id)
                   // alert(_id)
                 }}>
@@ -273,7 +273,7 @@ return (
           action=""
           className="w-[50%] rounded-md h-[500px] flex justify-center flex-col gap-5 items-center pb-[40%]"
         >
-          <h2 className="text-white text-xl">Add Product</h2>
+          <h2 className="text-red-800 text-3xl">Add Product</h2>
           {
 
           }
@@ -289,7 +289,7 @@ return (
           ))}
           <input
             type="submit"
-            className="text-white border-solid border-2 border-indigo-600 w-[4  0%]"
+            className="text-gray-600 text-xl border-solid border-2 border-indigo-600 w-[4  0%]"
           />
         </form>
           

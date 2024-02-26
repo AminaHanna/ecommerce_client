@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { Fragment, useEffect, useState } from 'react'
 import { errorToast } from '../../components/Toast'
+import { Card } from '@mui/material'
 
 function User() {
 
@@ -21,18 +22,27 @@ function User() {
   return (
     <div className=''>
       
+      <table className='m-auto bg-white '>
+            <tr style={{border:"1px solid black"}}>
+              <th className='text-black p-5'>User</th>
+              <th className='text-black p-5'>email</th>
+            </tr>
+         
       {/* login cheytha usersne view cheyyaan */}
+      
     {
       products.map((item)=>{
         return( 
         <Fragment>
-          <p className='text-white'>{item.lname}</p>
-          <p className='text-white'>{item.fname}</p>
-          <p className='text-white'>{item.email}</p><br/>
+          <tr>
+            <td style={{border:"1px solid black"}} className='text-black p-5'>{item.fname} {item.lname}</td>
+            <td style={{border:"1px solid black"}} className='text-black p-5'>{item.email}</td>
+          </tr>
         </Fragment>
         )
       })
     }
+    </table>
     </div>
 
 

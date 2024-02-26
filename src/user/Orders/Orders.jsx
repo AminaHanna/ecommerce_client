@@ -25,12 +25,12 @@ export default function Orders() {
                     <>
                     <Card className='p-5' style={{width:"200px",backgroundColor:"black",color:"white"}}>
                         <div className="">
-                            <p>first_name :{item.fname}</p>
-                            <p>last_name :{item.lname}</p>
-                            <p>product :{item.products.map((item)=>{
+                            <p>Ordername :{item.fname} {item.lname}</p>
+                            <p>product {item.products.map((item)=>{
                                 return(
                                     <>
-                                    <p>{item.name}</p>
+                                    <img src={`http://localhost:3000/${item.profile}`} alt="loading" style={{width:"80px" ,height:"80px" , borderRadius:"15px" ,margin:"auto"}}/>
+                                    {item.name}
                                     </>
                                 )
                             })}</p>

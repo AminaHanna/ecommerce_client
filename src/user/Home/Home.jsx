@@ -22,7 +22,7 @@ export default function Home() {
 
   const addtoCart = async (id)=>{
     try {
-      const response = await axios.post("http://localhost:3000/api/users/addtocart",{productId:id},{headers:{'Authorization':localStorage.getItem("token"  )}});
+      const response = await axios.post("http://localhost:3000/api/users/addtocart",{productId:id},{headers:{'Authorization':localStorage.getItem("token")}});
     } catch (error) {
       console.log(error);
     }
@@ -31,13 +31,13 @@ export default function Home() {
 
   return (
 
-        <div className="mx-10 my-32 flex gap-10 flex-wrap justify-center">
+        <div className="mx-10 flex gap-10 flex-wrap justify-center">
           {products.map((item) => {
             return (
               <>
-                  <div className="bg-slate-500 w-[300px] p-7 rounded hover:bg-slate-950">
+                  <div className="bg-slate-500 w-[300px] p-7 rounded hover:bg-slate-950 text-center">
                     <Link to={`/details/${item._id}`}  state={{products:item}}>
-                      <img style={{width:"80px",height:"80px",borderRadius:"50%"}} src={`http://localhost:3000/${item.profile}`}/>
+                      <img style={{width:"80px",height:"80px",borderRadius:"50%",margin:"auto"}} src={`http://localhost:3000/${item.profile}`}/>
                       <h1 className="text-white">Item : {item.name}</h1>
                       <p className="text-white">Price : {item.price}</p>
                       <p className="text-white">Details : {item.details}</p> 

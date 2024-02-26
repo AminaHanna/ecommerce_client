@@ -1,3 +1,4 @@
+import { Card } from '@mui/material'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
@@ -20,25 +21,30 @@ function UserCart() {
 
 
   return (
-    <div className='w-full bg-slate-100 flex'>
+    <div className=''>
+      <div className="flex gap-5">
       {
         cart.map((item)=>{
             return(
-                <div className='w-full flex'>
+                <div>
+                  <Card className='p-5'>
                 {item.product.map((product)=>{
                     return(
                         <div>
+                            <img src={`http://localhost:3000/${product.profile}`} alt="loading" style={{width:"80px" ,height:"80px" , borderRadius:"15px" ,margin:"auto"}}/>
                             <p>{product.name}</p>
-                            <p>{product.price}</p>
-                            <p>{product.details}</p>
+                            <p>price:{product.price}</p>
+                            <p>Details:{product.details}</p>
 
                         </div>
                     )
                 })}  
+                </Card>
                 </div>
             )
         })
       }
+      </div>
     </div>
   )
 }

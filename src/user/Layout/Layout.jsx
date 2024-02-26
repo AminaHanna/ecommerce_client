@@ -1,3 +1,4 @@
+import { Avatar } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link,Navigate,Outlet,useNavigate } from "react-router-dom";
@@ -25,13 +26,18 @@ export function Layout() {
     {
       tokenState ? 
       <div className="flex justify-center items-center h-screen">
-      <div className="w-[90%] m-auto h-[90vh] bg-slate-600 rounded-xl ">
+      <div className="w-[90%] m-auto h-[100vh] bg-slate-600 rounded-xl ">
 
 
+      <div className="flex justify-between ">
 
-        <div className="  flex gap-4 justify-end my-8 mx-10 ">
+        <div className="my-8 mx-10 flex gap-2">
+          <Avatar></Avatar>
+          <p className="text-lg text-white hover:text-orange-200 cursor-pointer">{JSON.parse(localStorage.getItem("users")).fname} {JSON.parse(localStorage.getItem("users")).lname}</p>
+        </div>
 
-           <p className="text-lg text-white hover:text-orange-200 cursor-pointer">{JSON.parse(localStorage.getItem("users")).fname} {JSON.parse(localStorage.getItem("users")).lname}</p>
+        <div className="flex gap-4 justify-end my-8 mx-10 ">
+
 
            <Link to={'/profile'}>
             <p className="text-lg text-white hover:text-orange-200 cursor-pointer">Profile</p>
@@ -61,6 +67,7 @@ export function Layout() {
             navigate('/user-login')
            }} className="text-lg text-white hover:text-orange-200 cursor-pointer" >Logout</p>
            
+        </div>
         </div>
 
 

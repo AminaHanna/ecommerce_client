@@ -10,7 +10,13 @@ function Register() {
   const formdatas = [
     {
       type: "text",
-      placeholder: "lName",
+      placeholder: "fName",
+      className: "",
+      name: "fname",
+    },
+    {
+      type: "text",
+      placeholder: "lname",
       className: "",
       name: "lname",
     },
@@ -26,12 +32,7 @@ function Register() {
       className: "",
       name: "password",
     },
-    {
-      type: "text",
-      placeholder: "fname.",
-      className: "",
-      name: "fname",
-    },
+    
   ];
 
   const onChangeValues = (e) => {
